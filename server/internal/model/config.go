@@ -1,12 +1,8 @@
 package model
 
-import (
-	"github.com/zhufuyi/sponge/pkg/ggorm"
-)
-
 // Config 系统配置
 type Config struct {
-	ggorm.Model `gorm:"embedded"` // embed id and time
+	Model `gorm:"embedded"` // embed id and time
 
 	Name        string `gorm:"column:name;type:text;NOT NULL" json:"name"`               // 配置名称
 	Description string `gorm:"column:description;type:text;NOT NULL" json:"description"` // 描述

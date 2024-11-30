@@ -24,3 +24,5 @@ go.work.sum
 # env file
 .env
 .idea
+server/db/data.db-shm
+server/db/data.db-wal

@@ -12,7 +12,6 @@ import (
 	"github.com/mojocn/base64Captcha"
 	"github.com/redis/go-redis/v9"
 	"github.com/zhufuyi/sponge/pkg/errcode"
-	"github.com/zhufuyi/sponge/pkg/ggorm"
 	"github.com/zhufuyi/sponge/pkg/gin/middleware"
 	"github.com/zhufuyi/sponge/pkg/gin/response"
 	"github.com/zhufuyi/sponge/pkg/gocrypto"
@@ -87,9 +86,9 @@ func (a authHandler) Login(c *gin.Context) {
 		return
 	}
 
-	lastTime := time.Now()
+	lastTime := types.LocalDateTime(time.Now())
 	_ = a.iDao.UpdateByID(c, &model.Platform{
-		Model: ggorm.Model{
+		Model: model.Model{
 			ID: platform.ID,
 		},
 		LastTime: &lastTime,
